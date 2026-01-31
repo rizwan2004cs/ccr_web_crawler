@@ -1,0 +1,9 @@
+# CCR Crawler Dependencies
+# Python 3.10+
+
+# Core crawling (Assignment requirement)
+crawl4ai>=0.4.0
+
+# HTML parsing
+beautifulsoup4>=4.12.0
+lxml>=5.1.0
