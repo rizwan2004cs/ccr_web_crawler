@@ -4,12 +4,11 @@ __pycache__/
 venv/
 .env
 
-# Data (Exclude raw large files)
+# Data (Exclude raw large files but allow compressed)
 data/*.jsonl
 data/*.txt
 !data/ccr_sections.jsonl.gz
-!data/recovery_list.txt
-!data/*.sample.jsonl
+
 
 # Logs
 logs/
