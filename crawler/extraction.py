@@ -1,5 +1,5 @@
 """
-CCR Content Extraction (Phase 4.9 - Final Recovery)
+CCR Content Extraction (Phase 4.99 - Emergency Repair)
 """
 
 import asyncio
@@ -19,13 +19,13 @@ sys.stderr.reconfigure(encoding='utf-8')
 
 # Configuration
 INPUT_FILE = Path("checkpoints/discovered_urls.txt")
-OUTPUT_FILE = Path("data/sections_recovery_final.jsonl")
+OUTPUT_FILE = Path("data/sections_final_5k.jsonl")
 CHECKPOINT_FILE = Path("checkpoints/extraction_state.json")
 FAILED_FILE = Path("data/failed_extractions.txt")
 LOG_FILE = Path("logs/extraction.log")
 
 CHECKPOINT_FREQUENCY = 100
-DELAY_SECONDS = 1.5
+DELAY_SECONDS = 1.0 # Faster for repair
 MAX_RETRIES = 3
 
 # Paths
@@ -199,7 +199,7 @@ async def extract_section(crawler: AsyncWebCrawler, url: str, delay: float = DEL
     await asyncio.sleep(delay)
     logging.info(f"Extracting: {url}")
     try:
-        config = CrawlerRunConfig(cache_mode=CacheMode.BYPASS, page_timeout=30000, wait_for="css:#co_docHeaderTitleLine", wait_until="networkidle")
+        config = CrawlerRunConfig(cache_mode=CacheMode.BYPASS, page_timeout=45000, wait_for="css:#co_docHeaderTitleLine", wait_until="networkidle")
         result = await crawler.arun(url=url, config=config)
         if not result.success:
             logging.error(f"Crawl failed for {url}: {result.error_message}")
@@ -214,7 +214,7 @@ async def extract_section(crawler: AsyncWebCrawler, url: str, delay: float = DEL
 
 async def extract_all_sections():
     setup_logging()
-    logging.info("Starting CCR content extraction (Recovery Final - 15x)")
+    logging.info("Starting CCR content extraction (Repair Run - 25x)")
     
     RECOVERY_FILE = DATA_DIR / "recovery_list_final.txt"
     if not RECOVERY_FILE.exists():
@@ -227,7 +227,7 @@ async def extract_all_sections():
     start_index = get_resume_position()
     urls_to_process = urls[start_index:]
     
-    logging.info(f"Total Final Recovery URLs: {len(urls)}")
+    logging.info(f"Total Repair URLs: {len(urls)}")
     logging.info(f"Already processed: {start_index}")
     logging.info(f"Remaining: {len(urls_to_process)}")
     
@@ -236,7 +236,7 @@ async def extract_all_sections():
     browser_config = BrowserConfig(headless=True, verbose=False, extra_args=["--disable-gpu", "--disable-dev-shm-usage", "--no-sandbox"])
     
     failed_count = 0
-    concurrency_sem = asyncio.Semaphore(15)
+    concurrency_sem = asyncio.Semaphore(20)  # Final Pass: 20x
     write_lock = asyncio.Lock()
     
     async def process_url(crawler, url, idx):
@@ -259,7 +259,7 @@ async def extract_all_sections():
             for i, url in enumerate(urls_to_process, start=start_index + 1):
                 task = asyncio.create_task(process_url(crawler, url, i))
                 tasks.append(task)
-                if len(tasks) >= 15:
+                if len(tasks) >= 20:
                      await asyncio.gather(*tasks)
                      tasks = []
             if tasks: await asyncio.gather(*tasks)
