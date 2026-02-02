@@ -1,0 +1,63 @@
+2026-01-31 16:17:15,900 INFO Starting CCR URL discovery crawler (Crawl4AI)
+2026-01-31 16:17:15,916 INFO Resuming from checkpoint: 1002 visited, 3427 in queue, 3281 discovered
+2026-01-31 16:17:16,087 INFO Checkpoint saved: 1002 visited, 3427 in queue, 3281 discovered
+2026-01-31 16:17:16,088 INFO ============================================================
+2026-01-31 16:17:16,088 INFO Crawl complete!
+2026-01-31 16:17:16,088 INFO Total URLs visited: 1002
+2026-01-31 16:17:16,089 INFO Total sections discovered: 3281
+2026-01-31 16:17:16,089 INFO Queue remaining: 3427
+2026-01-31 16:17:16,089 INFO Output: checkpoints\discovered_urls.txt
+2026-01-31 16:17:16,099 INFO ============================================================
+Traceback (most recent call last):
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\crawler\discovery.py", line 241, in crawl_async
+    async with AsyncWebCrawler(config=browser_config) as crawler:
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\crawl4ai\async_webcrawler.py", line 196, in __aenter__
+    return await self.start()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\crawl4ai\async_webcrawler.py", line 179, in start
+    await self.crawler_strategy.__aenter__()
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py", line 119, in __aenter__
+    await self.start()
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py", line 129, in start
+    await self.browser_manager.start()
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\crawl4ai\browser_manager.py", line 659, in start
+    self.playwright = await async_playwright().start()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\playwright\async_api\_context_manager.py", line 51, in start
+    return await self.__aenter__()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\venv\Lib\site-packages\playwright\async_api\_context_manager.py", line 40, in __aenter__
+    done, _ = await asyncio.wait(
+              ^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\tasks.py", line 451, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\tasks.py", line 537, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\crawler\discovery.py", line 313, in <module>
+    crawl()
+    ~~~~~^^
+  File "C:\Users\moham\.gemini\antigravity\scratch\ccr_web_crawler\crawler\discovery.py", line 309, in crawl
+    asyncio.run(crawl_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\moham\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt

@@ -52,11 +52,15 @@ def setup_logging():
     """Configure logging to file and console."""
     LOG_DIR.mkdir(exist_ok=True)
     
+    import sys
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s %(levelname)s %(message)s',
         handlers=[
-            logging.FileHandler(LOG_FILE),
+            logging.FileHandler(LOG_FILE, encoding='utf-8'),
             logging.StreamHandler()
         ]
     )
@@ -215,73 +219,85 @@ async def fetch_with_crawl4ai(crawler: AsyncWebCrawler, url: str, delay: float =
     
     return result.html
 
+async def process_url_task(crawler, url, queue, visited, discovered, base_url):
+    """
+    Process a single URL: fetch, extract links, and update queues.
+    Designed for concurrent execution.
+    """
+    try:
+        # Fetch page
+        html = await fetch_with_crawl4ai(crawler, url)
+        
+        # Extract links
+        links = extract_links_from_html(html, base_url)
+        logging.info(f"Extracted {len(links)} links from {url}")
+        
+        # Classify and process links
+        for link in links:
+            # Note: Explicit lock for 'visited' not needed in asyncio (single-threaded event loop)
+            # but order of operations matters. We check visited before appending to queue in the main loop,
+            # but for recursive discovery here we rely on the main loop's checks or add logic.
+            # Actually, standard BFS adds to queue. Duplicates in queue are handled by visited check at pop.
+            
+            if is_navigation_url(link):
+                queue.append(link) 
+            
+            elif is_section_url(link):
+                if link not in discovered: # 'discovered' list check might span multiple tasks, but acceptable.
+                    discovered.append(link)
+                    logging.info(f"✓ Discovered section: {link}")
+
+    except Exception as e:
+        logging.error(f"Failed to process {url}: {e}")
 
 async def crawl_async():
     """
     Main BFS crawler implementation using Crawl4AI (async).
-    
-    Discovers all CCR section URLs by traversing navigation pages.
+    Refactored for PARALLEL BATCH PROCESSING.
     """
     setup_logging()
-    logging.info("Starting CCR URL discovery crawler (Crawl4AI)")
+    logging.info(f"Starting CCR Discovery (Parallel BFS x{MAX_CONCURRENT})")
     
     # Initialize or resume
     queue, visited, discovered = load_checkpoint()
     
-    # Crawl4AI browser configuration
+    # Browser config
     browser_config = BrowserConfig(
         headless=True,
         verbose=False,
         extra_args=["--disable-gpu", "--disable-dev-shm-usage", "--no-sandbox"],
     )
     
-    url_count = 0
+    url_count = len(visited)
     
     try:
         async with AsyncWebCrawler(config=browser_config) as crawler:
             while queue:
-                url = queue.popleft()
+                # 1. Create a batch of unique, unvisited URLs
+                batch = []
+                while len(batch) < MAX_CONCURRENT and queue:
+                    url = queue.popleft()
+                    if url not in visited:
+                        visited.add(url)
+                        batch.append(url)
+                        url_count += 1
                 
-                # Skip if already visited
-                if url in visited:
+                if not batch:
                     continue
-                
-                visited.add(url)
-                url_count += 1
-                
-                try:
-                    # Fetch page using Crawl4AI
-                    html = await fetch_with_crawl4ai(crawler, url)
-                    
-                    # Extract links
-                    links = extract_links_from_html(html, BASE_URL)
-                    logging.info(f"[{url_count}] Extracted {len(links)} links from {url}")
-                    
-                    # Classify and process links
-                    for link in links:
-                        if link in visited:
-                            continue
-                        
-                        if is_navigation_url(link):
-                            # Navigation page - add to queue for traversal
-                            if link not in queue:
-                                queue.append(link)
-                        
-                        elif is_section_url(link):
-                            # Section page - record for extraction (Phase 4)
-                            if link not in discovered:
-                                discovered.append(link)
-                                logging.info(f"✓ Discovered section: {link}")
-                    
-                    # Checkpoint every N URLs
-                    if url_count % CHECKPOINT_FREQUENCY == 0:
-                        save_checkpoint(queue, visited, discovered)
-                
-                except Exception as e:
-                    logging.error(f"Failed to process {url}: {e}")
-                    # Continue crawling despite errors
-                    continue
-    
+
+                logging.info(f"Processing batch of {len(batch)} URLs...")
+
+                # 2. Run batch in parallel
+                tasks = [
+                    process_url_task(crawler, url, queue, visited, discovered, BASE_URL) 
+                    for url in batch
+                ]
+                await asyncio.gather(*tasks)
+
+                # Checkpoint
+                if url_count % CHECKPOINT_FREQUENCY < len(batch): # Approximate check
+                   save_checkpoint(queue, visited, discovered)
+
     except KeyboardInterrupt:
         logging.warning("Crawl interrupted by user")
     
@@ -291,7 +307,6 @@ async def crawl_async():
         raise
     
     finally:
-        # Final checkpoint
         save_checkpoint(queue, visited, discovered)
         
         # Summary

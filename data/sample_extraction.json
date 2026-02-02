@@ -1,0 +1,22 @@
+{
+  "url": "https://govt.westlaw.com/calregs/Document/TEST?viewType=FullText",
+  "guid": "TEST",
+  "section_number": "\u00a7 1031",
+  "section_title": "12. Priority of Legal Requirements.",
+  "citation_short": null,
+  "citation_canonical": null,
+  "hierarchy": {
+    "title": null,
+    "division": null,
+    "chapter": null,
+    "subchapter": null,
+    "article": null
+  },
+  "text_html": null,
+  "text_plain": null,
+  "currency_notice": null,
+  "extraction_status": "parse_failure",
+  "extraction_note": "Could not extract document text content",
+  "external_url": null,
+  "extracted_at": "2026-01-31T13:19:57.586771"
+}

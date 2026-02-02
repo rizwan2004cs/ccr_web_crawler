@@ -1,0 +1,13 @@
+Validating data/sections.jsonl...
+------------------------------
+Total Records: 100
+Unique URLs:   100
+Duplicates:    0
+------------------------------
+Valid Records: 92
+Redirects:     0 (Title 24 etc)
+Missing Title: 8
+Missing Text:  8
+Empty Text:    0
+------------------------------
+⚠️ DATA ISSUES DETECTED

@@ -1,0 +1,299 @@
+https://govt.westlaw.com/calregs/Document/I41A5DBA048A011EEA17B972C32E372B2?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/I41A5DBA048A011EEA17B972C32E372B2?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IAC86D6D35A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IAC86D6D35A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IAC06D1635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IAC06D1635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/I965811A0152611F0A826FB42D1725FCE?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/I965811A0152611F0A826FB42D1725FCE?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IAC8A59435A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IAC8A59435A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/I79EF21F048A611EE96CEF85F184A5D69?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/I79EF21F048A611EE96CEF85F184A5D69?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IABFAEA835A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IABFAEA835A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IACB699635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IACB699635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IACA498035A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/IACA498035A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/I63D7C48048A611EE96CEF85F184A5D69?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/I63D7C48048A611EE96CEF85F184A5D69?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/I0095F1E0152711F0868BB6886D1683C0?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 718 in _crawl_web (venv\Lib\site-packages\crawl4ai\async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Page crashed
+Call log:
+  - navigating to "https://govt.westlaw.com/calregs/Document/I0095F1E0152711F0868BB6886D1683C0?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)", waiting until "networkidle"
+
+
+Code context:
+ 713                                   tag="GOTO",
+ 714                                   params={"url": url},
+ 715                               )
+ 716                               response = None
+ 717                           else:
+ 718 →                             raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+ 719   
+ 720                       # ──────────────────────────────────────────────────────────────
+ 721                       # Walk the redirect chain.  Playwright returns only the last
+ 722                       # hop, so we trace the `request.redirected_from` links until the
+ 723                       # first response that differs from the final one and surface its
+https://govt.westlaw.com/calregs/Document/IAC946B635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+https://govt.westlaw.com/calregs/Document/IFEA349A0152611F0868BB6886D1683C0?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+https://govt.westlaw.com/calregs/Document/IACDA75115A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+https://govt.westlaw.com/calregs/Document/IAC023D835A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+https://govt.westlaw.com/calregs/Document/IACA0A0635A0F11EC8227000D3A7C4BC3?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+https://govt.westlaw.com/calregs/Document/I94B3FE90152611F08928E0EA1CA93E53?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default) | Note: Extraction error: Unexpected error in _crawl_web at line 559 in wrap_api_call (venv\Lib\site-packages\playwright\_impl\_connection.py):
+Error: Page.close: Connection closed while reading from the driver
+
+Code context:
+ 554           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+ 555           self._api_zone.set(parsed_st)
+ 556           try:
+ 557               return await cb()
+ 558           except Exception as error:
+ 559 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 560           finally:
+ 561               self._api_zone.set(None)
+ 562   
+ 563       def wrap_api_call_sync(
+ 564           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None

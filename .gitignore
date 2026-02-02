@@ -1,60 +1,20 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
 venv/
-env/
-ENV/
-.venv
+.env
+
+# Data (Exclude raw large files)
+data/*.jsonl
+data/*.txt
+!data/ccr_sections.jsonl.gz
+!data/recovery_list.txt
+!data/*.sample.jsonl
+
+# Logs
+logs/
+debug_*.html
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# Logs
-logs/
-*.log
-
-# Data files (large outputs)
-data/
-*.jsonl
-*.csv
-*.parquet
-
-# Checkpoints
-checkpoints/
-*.ckpt
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
-
-# Environment variables
-.env
-.env.local
