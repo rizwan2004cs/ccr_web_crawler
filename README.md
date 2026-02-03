@@ -104,16 +104,21 @@ python indexer/ingest.py
 # This creates a Pinecone index 'ccr-sections' with 75k vectors (~5-10 mins)
 ```
 
-**Launch the AI Agent (For all users):**
+**Launch the AI Agent:**
 ```bash
+# Recommended (ensures correct dependencies):
+venv/Scripts/python -m streamlit run agent/app.py
+
+# Standard (if venv is active):
 streamlit run agent/app.py
-# Open http://localhost:8501 in your browser
 ```
 
 **Test Queries:**
-- "What CCR sections apply to a restaurant in California?"
-- "What regulations should a movie theater operator be aware of?"
-- "What laws apply to farms or agricultural facilities?"
+*   **Restaurants:** "What are the fire extinguisher requirements for a commercial kitchen?"
+*   **Theaters:** "What is the maximum occupancy load for a movie theater waiting area?"
+*   **Hospitals:** "How often must emergency backup generators be tested?"
+*   **General:** "What are the specific signage requirements for gender-neutral restrooms?"
+*   **Safety:** "Are employees required to wear protective gear when handling hazardous chemicals?"
 
 The agent will:
 - Retrieve relevant CCR sections via semantic search (Pinecone)
