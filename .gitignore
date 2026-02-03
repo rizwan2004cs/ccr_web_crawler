@@ -6,7 +6,8 @@ venv/
 
 # Data (Exclude all - too large for GitHub, regenerate locally)
 data/*.jsonl
-data/*.jsonl.gz
+# data/*.jsonl.gz # Commented out to allow the main data file
+!data/sections_CCR_COMPLETE.jsonl.gz
 data/*.txt
 
 # ChromaDB (Too large for GitHub, regenerate locally)
