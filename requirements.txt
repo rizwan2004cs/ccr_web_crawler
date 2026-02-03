@@ -1,3 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
 streamlit==1.53.1
 pinecone-client==5.0.1
 sentence-transformers
