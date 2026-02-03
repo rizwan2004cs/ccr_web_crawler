@@ -98,4 +98,4 @@ groq
 sentence-transformers
 streamlit
 pandas
-pinecone-client
+pinecone-client==5.0.1
