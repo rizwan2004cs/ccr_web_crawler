@@ -4,10 +4,13 @@ __pycache__/
 venv/
 .env
 
-# Data (Exclude raw large files but allow compressed)
+# Data (Exclude all - too large for GitHub, regenerate locally)
 data/*.jsonl
+data/*.jsonl.gz
 data/*.txt
-!data/ccr_sections.jsonl.gz
+
+# ChromaDB (Too large for GitHub, regenerate locally)
+chroma_db/
 
 
 # Logs

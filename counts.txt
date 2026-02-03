@@ -1,1 +1,0 @@
-Counter({'parse_failure': 39829, 'success': 35152, 'external_redirect': 16})

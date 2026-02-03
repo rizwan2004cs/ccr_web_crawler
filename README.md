@@ -78,6 +78,53 @@ The goal of this project is to build a crawler that discovers and extracts every
 
 ---
 
+### Phase 5: RAG Agent
+*   **Database:** `Pinecone` (Cloud-hosted, Serverless)
+*   **Justification:** 
+    - **Scalability**: Cloud-hosted vector database eliminates local storage constraints
+    - **Deployment**: No need to distribute large database files (~300MB) - users only need API credentials
+    - **Production-Ready**: Serverless architecture with automatic scaling
+    - **Assignment Compliance**: Meets all requirements (semantic search, metadata filtering, idempotent upserts)
+    - **Free Tier**: Generous free tier (1 index, 100K vectors) sufficient for this prototype
+*   **LLM:** Groq (Llama 3.1) - Fast inference
+
+**Setup:**
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure API Keys in .env
+GROQ_API_KEY=your_groq_key
+PINECONE_API_KEY=your_pinecone_key
+```
+
+**Run Data Ingestion (One-time, by project maintainer):**
+```bash
+python indexer/ingest.py
+# This creates a Pinecone index 'ccr-sections' with 75k vectors (~5-10 mins)
+```
+
+**Launch the AI Agent (For all users):**
+```bash
+streamlit run agent/app.py
+# Open http://localhost:8501 in your browser
+```
+
+**Test Queries:**
+- "What CCR sections apply to a restaurant in California?"
+- "What regulations should a movie theater operator be aware of?"
+- "What laws apply to farms or agricultural facilities?"
+
+The agent will:
+- Retrieve relevant CCR sections via semantic search (Pinecone)
+- Provide specific citations (Title, Section numbers)
+- Explain why each section applies
+- Ask follow-up questions if information is insufficient
+
+**Note for Users:** The Pinecone index is already populated. You only need API keys to query it - no local database setup required!
+
+---
+
 ## 🛠️ Usage References
 
 ### To Re-Run Discovery

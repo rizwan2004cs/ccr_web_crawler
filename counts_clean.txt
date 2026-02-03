@@ -1,3 +1,0 @@
-success: 35152
-parse_failure: 39829
-external_redirect: 16
