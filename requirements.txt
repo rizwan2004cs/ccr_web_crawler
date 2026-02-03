@@ -1,6 +1,6 @@
 streamlit==1.53.1
 pinecone-client==5.0.1
-sentence-transformers==2.2.2
+sentence-transformers
 openai==1.6.1
 groq==0.4.2
 python-dotenv==1.0.0
