@@ -15,10 +15,7 @@ if not api_key:
     st.stop()
     
 # Sidebar info
-with st.sidebar:
-    st.header("Configuration")
-    st.success("API Key loaded from environment")
-    st.info("Using Llama3-8b-8192 via Groq (Fast & Free)")
+
 
 # Initialize Retriever (Cached)
 @st.cache_resource
