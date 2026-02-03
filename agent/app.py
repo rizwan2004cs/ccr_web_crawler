@@ -8,13 +8,16 @@ st.set_page_config(page_title="CCR Compliance Agent", page_icon="⚖️", layout
 st.title("⚖️ California Regulatory Advisor")
 st.markdown("Advising facility operators on **California Code of Regulations (CCR)**.")
 
-# Sidebar for Config
+# Config
+api_key = os.getenv("GROQ_API_KEY")
+if not api_key:
+    st.error("GROQ_API_KEY not found in environment variables. Please check your .env file.")
+    st.stop()
+    
+# Sidebar info
 with st.sidebar:
     st.header("Configuration")
-    api_key = st.text_input("Groq API Key", type="password", help="Get one at console.groq.com")
-    if not api_key:
-        api_key = os.getenv("GROQ_API_KEY")
-    
+    st.success("API Key loaded from environment")
     st.info("Using Llama3-8b-8192 via Groq (Fast & Free)")
 
 # Initialize Retriever (Cached)
@@ -33,9 +36,7 @@ query = st.text_area("Describe your facility or compliance question:",
     placeholder="e.g., I run a movie theater in San Francisco. What are the fire safety requirements for exit doors?")
 
 if st.button("Get Advice") and query:
-    if not api_key:
-        st.error("Please provide a Groq API Key.")
-        st.stop()
+    # api_key validation handled at startup
         
     client = Groq(api_key=api_key)
     
