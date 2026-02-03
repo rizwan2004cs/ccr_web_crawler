@@ -3,8 +3,8 @@ torch
 streamlit==1.53.1
 pinecone-client==5.0.1
 sentence-transformers
-openai==1.6.1
-groq==0.4.2
+openai
+groq
 python-dotenv==1.0.0
 pandas==2.1.4
 numpy==1.26.3
