@@ -17,7 +17,8 @@ st.markdown("Advising facility operators on **California Code of Regulations (CC
 # Config
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
-    st.error("GROQ_API_KEY not found in environment variables. Please check your .env file.")
+    logger.error("GROQ_API_KEY is not set")
+    st.error("The advisor is temporarily unavailable. Please try again later.")
     st.stop()
     
 # Sidebar info
@@ -30,8 +31,9 @@ def get_retriever():
 
 try:
     retriever = get_retriever()
-except Exception as e:
-    st.error(f"Failed to load Retriever: {e}. Did you run ingest.py?")
+except Exception:
+    logger.exception("Failed to load retriever (did ingest.py run?)")
+    st.error("The advisor is temporarily unavailable. Please try again later.")
     st.stop()
 
 # Main Interface
@@ -45,7 +47,12 @@ if st.button("Get Advice") and query:
     
     # 1. Retrieve
     with st.spinner("Searching 75,000 regulatory sections..."):
-        hits = retriever.search(query, top_k=8)
+        try:
+            hits = retriever.search(query, top_k=8)
+        except Exception:
+            logger.exception("Retriever search failed")
+            st.error("Search is temporarily unavailable. Please try again in a moment.")
+            st.stop()
     
     # Display Sources
     with st.expander("📚 Referenced CCR Sections (Context)", expanded=False):
