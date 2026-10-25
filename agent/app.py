@@ -1,7 +1,13 @@
 import streamlit as st
 import os
+import logging
 from retrieve import CCRRetriever
 from groq import Groq
+
+logger = logging.getLogger(__name__)
+
+# Groq retires models over time, so keep them configurable and try a fallback
+MODELS = [m for m in [os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"), "openai/gpt-oss-20b"] if m]
 
 st.set_page_config(page_title="CCR Compliance Agent", page_icon="⚖️", layout="wide")
 
@@ -67,19 +73,30 @@ if st.button("Get Advice") and query:
         {context}
         """
         
-        completion = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": system_prompt.format(context=context_text)},
-                {"role": "user", "content": query}
-            ],
-            temperature=0.3,
-            max_tokens=2000
-        )
-        
-        response = completion.choices[0].message.content
+        response = None
+        for model in dict.fromkeys(MODELS):
+            try:
+                completion = client.chat.completions.create(
+                    model=model,
+                    messages=[
+                        {"role": "system", "content": system_prompt.format(context=context_text)},
+                        {"role": "user", "content": query}
+                    ],
+                    temperature=0.3,
+                    max_completion_tokens=4000,
+                    reasoning_effort="low"
+                )
+                response = completion.choices[0].message.content
+                if response:
+                    break
+            except Exception:
+                logger.exception("Groq completion failed for model %s", model)
+
+    if response:
         st.markdown("### 🤖 Compliance Advice")
         st.markdown(response)
+    else:
+        st.error("The advisor is temporarily unavailable. The referenced CCR sections above are still accurate; please try again in a moment.")
 
 st.markdown("---")
 st.caption("Disclaimer: This tool provides information, not legal advice. Database: Jan 2026.")
